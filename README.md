@@ -1,8 +1,6 @@
-# Meson sekelton code
+# Meson skeleton code
 
-This repository contains a [Meson](https://mesonbuild.com/) skeleton. It is used in the [High-Performance Computiong:  MD
-with C++
-project](https://pastewka.github.io/MolecularDynamics/_project/general_remarks.html).
+This repository contains a [Meson](https://mesonbuild.com/) skeleton for C++ projects.
 
 ## Getting started
 
