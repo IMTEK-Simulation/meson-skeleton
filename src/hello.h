@@ -2,7 +2,7 @@
 #define VERLET_H
 
 
-void hello_eigen();
+void hello_world();
 
 
 #endif // __VERLET_H
