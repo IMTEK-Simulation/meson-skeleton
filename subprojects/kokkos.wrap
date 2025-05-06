@@ -5,4 +5,5 @@ depth = 1
 method = cmake
 
 [provide]
-kokkos = kokkos_dep
+kokkoscore = kokkoscore_dep
+kokkosalgorithms = kokkosalgorithms_dep

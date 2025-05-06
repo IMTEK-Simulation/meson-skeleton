@@ -3,5 +3,5 @@ executable(
 	'main.cpp',
 	include_directories : [lib_incdirs],
 	link_with : [lib],
-	dependencies : [kokkos, mpi]
+	dependencies : [mpi]
 )

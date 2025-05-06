@@ -12,9 +12,9 @@ project(
 # eigen = dependency('eigen3', version: '>=3.4.0')
 
 # Optional dependency: Kokkos C++ performance portability library
-# Make sure to add 'kokkos' to the dependencies in your subdirectories if you
+# Make sure to add 'kokkoscore' to the dependencies in your subdirectories if you
 # enable this.
-# kokkos = dependency('kokkos')
+# kokkoscore = dependency('kokkoscore')
 
 # Detect MPI, but make it optional
 mpi = dependency('mpi', language: 'cpp', required: false)
