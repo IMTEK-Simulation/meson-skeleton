@@ -5,6 +5,7 @@ for dependencies on the numerical libraries
 
 * [Eigen3](https://eigen.tuxfamily.org/)
 * [Kokkos](https://kokkos.org/)
+* [MPI](https://www.mpi-forum.org/)
 
 ## Getting started
 
