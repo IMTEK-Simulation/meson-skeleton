@@ -10,8 +10,7 @@ for dependencies on the numerical libraries
 ## Getting started
 
 Click the `Use this template` button above, then clone the newly created
-repository, as described in [the first
-milestone](https://pastewka.github.io/MolecularDynamics/_project/milestone01.html).
+repository.
 
 ### Compiling using CLion
 
