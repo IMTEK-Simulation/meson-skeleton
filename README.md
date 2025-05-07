@@ -1,6 +1,10 @@
 # Meson skeleton code
 
-This repository contains a [Meson](https://mesonbuild.com/) skeleton for C++ projects.
+This repository contains a [Meson](https://mesonbuild.com/) skeleton for C++ projects. It has provision
+for dependencies on the numerical libraries
+
+* [Eigen3](https://eigen.tuxfamily.org/)
+* [Kokkos](https://kokkos.org/)
 
 ## Getting started
 
