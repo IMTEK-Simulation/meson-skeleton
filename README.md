@@ -30,7 +30,7 @@ running production simulations. Add `--buildtype=release` or `--buildtype=debug`
 to switch between the two.
 
 To run the executable, click on the dialog directly right of the
-green hammer in the upper right toolbar, select "milestone01", and click
+green hammer in the upper right toolbar, select "main", and click
 the green arrow right of that dialog. You should see the output in the "Run"
 tab, in the lower main window.
 
@@ -59,7 +59,7 @@ cd builddir
 meson compile
 
 # Run executable and tests
-./milestones/01/01
+./main
 meson test
 ```
 
@@ -92,23 +92,16 @@ meson compile
 
 There are three places where you are asked to add code:
 
-- `src/` is the core of the MD code. Code common to all the simulations you will
-  run should be added here. This includes implementation of time stepping
-  scheme, potentials, thermostats, neighbor lists, atom containers, and
-  implementation files that will be provided by us (e.g. domain decomposition
-  implementation). The `meson.build` file in `src/` creates a [static
-  library](https://en.wikipedia.org/wiki/Static_library) which is linked to all
-  the other targets in the repository, and which propagates its dependency, so
-  that there is no need to explicitly link against Eigen or MPI.
+- `src/` is the core of the code. Code common to all executables and tests
+  you will run should be added here. The `meson.build` file in `src/` creates
+  [static library](https://en.wikipedia.org/wiki/Static_library) which is linked
+  to all the other targets in the repository, and which propagates its dependency,
+  so that there is no need to explicitly link against Eigen or MPI.
 - `tests/` contains tests for the library code code. It uses
   [GoogleTest](https://google.github.io/googletest/) to define short, simple
-  test cases. This is where you will add tests for the time integration,
-  potentials, thermostats, etc., but it should not contain "real physics"
-  simulations, such as heat capacity calculations.
-- `milestones/` contains the "real physics" simulations that are required in
-  milestones 04, 07, 08, 09. It should only contain code specific to the
-  milestones, i.e. the `main()` function running the simulation, and input data
-  files that we provide.
+  test cases.
+- `executables/` contains the final executable codes, i.e. it needs a `main()`
+  function.
 
 ### Adding to `src/`
 
@@ -130,11 +123,11 @@ Create your test file, e.g. `test_verlet.cpp` in `tests/`, then modify the
 correctly added by running `meson compile` in the build directory: your test should
 show up in the output.
 
-### Adding to `milestones/`
+### Adding to `executables/`
 
-Create a new directory, e.g. with `mkdir milestones/04`, then add `subdir('04')`
-to `milestones/meson.build`, then create & edit
-`milestones/04/meson.build`:
+Create a new directory, e.g. with `mkdir executables/04`, then add `subdir('04')`
+to `executables/meson.build`, then create & edit
+`executables/04/meson.build`:
 
 ```meson
 executable(
@@ -146,7 +139,7 @@ executable(
 )
 ```
 
-You can now create & edit `milestones/04/main.cpp`, which should include a
+You can now create & edit `executables/04/main.cpp`, which should include a
 `main()` function as follows:
 
 ```c++
@@ -160,17 +153,17 @@ The code of your simulation goes into the `main()` function.
 #### Input files
 
 We often provide input files (`.xyz` files) for your simulations, for example in
-milestone 4. You should place these in e.g. `milestones/04/`, and add the
-following to `milestones/04/meson.build`:
+milestone 4. You should place these in e.g. `executables/04/`, and add the
+following to `executables/04/meson.build`:
 
 ```meson
 fs = import('fs')
 fs.copyfile('lj54.xyz')
 ```
 
-This will copy the file `milestone/04/lj54.xyz` to
-`<build>/milestone/04/lj54.xyz`, but **only** when the executable for the milestone
-is rebuilt. To trigger a rebuild you can erase the `<build>/milestone/04`
+This will copy the file `executables/04/lj54.xyz` to
+`<build>/executables/04/lj54.xyz`, but **only** when the executable for the milestone
+is rebuilt. To trigger a rebuild you can erase the `<build>/executables/04`
 directory and `meson compile` again.
 
 *Note:* `.xyz` files are ignored by Git. That's on purpose to avoid you staging
