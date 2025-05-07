@@ -29,7 +29,7 @@ This mode should be used when developing and testing code.
 running production simulations. Add `--buildtype=release` or `--buildtype=debug` to "Setup options"
 to switch between the two.
 
-To run the first milestone executable, click on the dialog directly right of the
+To run the executable, click on the dialog directly right of the
 green hammer in the upper right toolbar, select "milestone01", and click
 the green arrow right of that dialog. You should see the output in the "Run"
 tab, in the lower main window.
