@@ -14,7 +14,17 @@ project(
 # Optional dependency: Kokkos C++ performance portability library
 # Make sure to add 'kokkoscore' to the dependencies in your subdirectories if you
 # enable this.
-# kokkoscore = dependency('kokkoscore')
+# cmake = import('cmake')
+# kokkos_options = cmake.subproject_options()
+# kokkos_options.add_cmake_defines({
+#   'Kokkos_ENABLE_SERIAL': true, # Serial execution
+#   'Kokkos_ENABLE_THREADS': true, # Threads
+#   'Kokkos_ENABLE_OPENMP': false, # OpenMP support
+#   'Kokkos_ENABLE_CUDA': false, # CUDA support
+#   'Kokkos_ENABLE_HIP': false, # HIP support
+# })
+# kokkos = cmake.subproject('kokkos', options: kokkos_options)
+# kokkoscore = kokkos.dependency('kokkoscore')
 
 # Detect MPI, but make it optional
 mpi = dependency('mpi', language: 'cpp', required: false)
